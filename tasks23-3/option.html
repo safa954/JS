@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>optional task</title>
+    
+    <style>
+        ul li {
+            border: 1px gray solid;
+            border-radius: 20px;
+            position: relative;
+            padding: 12px;
+            list-style-type: none;
+            background: gainsboro;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="s">
+        
+        <input type="text" onclick="bcolor" class="form-control" name="" id="write" a placeholder="favorite Song name">
+        <button onclick="addSong()">Add Song</button>
+        <ul id="song"></ul>
+    </div>
+
+    <script>
+        function addSong() {
+            let add = document.createElement("li");
+            let inputValue = document.getElementById('write').value;
+            var t = document.createTextNode(inputValue);
+            add.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write a song name!");
+            } else {
+                document.getElementById("song").appendChild(add);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

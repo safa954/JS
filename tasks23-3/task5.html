@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercise5</title>
+  <style>
+    form {
+
+      background-color: aliceblue;
+      width: 500px;
+      padding: 50px 40px;
+      position: absolute;
+
+
+    }
+
+    label {
+
+      font-weight: 500;
+      color: rgb(32, 5, 54);
+    }
+
+    input {
+      display: block;
+      width: 400px;
+      margin-top: 5px;
+      padding: 12px;
+      border-radius: 5px;
+      outline: none;
+      color: black;
+
+    }
+
+    #errors {
+      display: flex;
+    }
+
+    #error1,
+    #error2 {
+      color: red;
+
+    }
+
+    #bttn {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="errors">
+    <div>
+      <br>
+      <label><b>Password (min 6 characters)</b></label>
+      <br>
+      <br>
+      <br>
+      <br>
+      <label><b>Repaet Password:</b></label>
+    </div>
+    <div><input type="password" onchange="check()" id="firstpass"> <label id="error1"></label>
+      <br>
+      <input type="password" onchange="check()" id="secondpass"> <label id="erroe2"></label>
+    </div>
+  </div>
+
+  <button id="bttn">Submit</button>
+  <script>
+    tooshort1 = false;
+    tooshort2 = false;
+    login = false;
+
+
+    function check() {
+      var str1 = document.getElementById("firstpass").value;
+      var str2 = document.getElementById("secondpass").value;
+
+      tooshort = tooshort1 & tooshort2;
+
+      if (str1.length < 6) {
+        document.getElementById("error1").innerHTML = "too short";
+        tooshort1 = true;
+
+      } else {
+        document.getElementById("error1").innerHTML = "";
+        tooshort1 = false;
+      }
+      if ((str2.length < 6)) {
+        document.getElementById("error2").innerHTML = "too short";
+        tooshort2 = true;
+      } else {
+        document.getElementById("error2").innerHTML = "";
+        tooshort2 = false;
+      }
+
+      if (str2.length == 0) {
+        document.getElementById("error2").innerHTML = "";
+        tooshort2 = false;
+      }
+
+      if (str1.length == 0) {
+        document.getElementById("error1").innerHTML = "";
+        tooshort2 = false;
+      }
+
+      if ((str1 != str2) & (str1.length != 0) & (str2.length != 0) & !tooshort) {
+        document.getElementById("error2").innerHTML = "the two passwords don't match";
+      }
+
+      if (str1 == str2) {
+        login = true;
+        document.getElementById("bttn").style.display = "block";
+      }
+
+
+
+
+    }
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise4</title>
+    
+</head>
+
+<body>
+    <select id="font">
+        <option value="arial">Arial</option>
+        <option value="calibri">Corbel</option>
+        <option value="corbel">Calibri</option>
+    </select>
+
+    <select id="size">
+        <option value="10px">20pt</option>
+        <option value="12px">30pt</option>
+        <option value="30px">40pt</option>
+    </select>
+
+    <input type="checkbox" id="Italic" value="Italic">
+    <label for="Italic">Italic</i></label>
+    <input type="checkbox" id="Bold" value="Bold">
+    <label for="Bold"> Bold</label>
+    <input type="checkbox" id="Underline" value="Underline">
+    <label for="Underline"> Underline</label>
+    <br>
+    <textarea type="text" rows="4" cols="60"></textarea>
+    <script>
+        Italic = false;
+        Bold = false;
+        Underline = false;
+
+        function checkbox(num) {
+            if (num == 1) {
+                if (!Italic) {
+                    document.querySelector("textarea").style.fontStyle = "Italic";
+                    Italic = true;
+                } else {
+                    document.querySelector("textarea").style.fontStyle = "normal";
+                    Italic = false;
+                }
+            } else if (num == 2) {
+                if (!Bold) {
+                    document.querySelector("textarea").style.fontWeight = "Bold";
+                    Bold = true;
+                } else {
+                    document.querySelector("textarea").style.fontWeight = "normal";
+                    Bold = false;
+                }
+            } else if (num == 3) {
+                if (!Underline) {
+                    document.querySelector("textarea").style.textDecoration = "Underline";
+                    Underline = true;
+                } else {
+                    document.querySelector("textarea").style.textDecoration = "none";
+                    Underline = false;
+                }
+
+            }
+        }
+
+
+        function font() {
+            var x = document.getElementById('font').value;
+
+            if (x == "arial") {
+                document.querySelector("textarea").style.fontFamily = "arial";
+            }  else if (x == "corbel") {
+                document.querySelector("textarea").style.fontFamily = "corbel";
+            }else if (x == "calibri") {
+                document.querySelector("textarea").style.fontFamily = "calibri";
+            }
+        }
+
+
+        function font_size() {
+            var x = document.getElementById('size').value;
+            console.log(3);
+            if (x == "20px") {
+                console.log(3);
+                document.querySelector("textarea").style.fontSize = "20px";
+            } else if (x == "30px") {
+                document.querySelector("textarea").style.fontSize = "30px";
+            } else if (x == "40px") {
+                document.querySelector("textarea").style.fontSize = "40px";
+            }
+        }
+    </script>
+</body>
+
+</html>
+

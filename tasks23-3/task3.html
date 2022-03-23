@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="s" onchange="fun()">
+        <option value="Jordan" class="s1">Jordan</option>
+        <option value="Palestine" class="s1">Palestine</option>
+        <option value="Emirate" class="s1">Emirate</option>
+        <option value="Qater" class="s1">Qater</option>
+    </select>
+    <br>
+    <div><img src="images/saaa.png" width="200px" height="200px" id="s2"></div>
+    <script>
+        function fun() {
+            var x = document.getElementById('s').value;
+
+            if (x == "Jordan") {
+                document.querySelector("img").src = 'images/jordan.png'
+            } else if (x == "Palestine") {
+                document.querySelector("img").src = 'images/download.png'
+            } else if (x == "Emirate") {
+                document.querySelector("img").src = 'images/Emirate.jpg'
+
+            } else {
+                document.querySelector("img").src = 'images/qater.png'
+            }
+
+            console.log(x)
+        }
+
+    </script>
+
+</body>
+
+</html>
