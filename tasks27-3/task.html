@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+            font-weight: bolder;
+            
+        }
+        #card {
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 500px;
+            text-align: center;
+            padding: 5px;
+            display: none;
+            background-color: lightpink;
+            font-size: larger;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+       
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15pxpx;
+        }
+
+
+        #language {
+            display: flex;
+        }
+
+        input {
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Project information </h1>
+
+    <div id="mainForm">
+        <form>
+            <label>Name</label>
+            <input type="text" id="name"><br>
+
+            <label>user</label>
+            <div>
+                <input type="radio" class="user" value="0"> <label>Male</label>
+                <input type="radio" class="user" value="1"> <label>Female</label>
+            </div><br>
+            <label>Description</label>
+            <textarea id="description" cols="40" rows="20"></textarea><br>
+
+
+
+
+            <div id="language">
+
+                <input type="checkbox" class="lang" value="python">
+                <label for=""> python</label>
+
+                <input type="checkbox" class="lang" value="js">
+                <label for=""> js</label>
+
+
+
+            </div><br>
+
+
+
+
+            <input type="submit" onclick="showCard()">
+
+        </form>
+        <div id="card">
+
+            <h3 id="cardname"></h3>
+
+            <div id="carduserer"></div>
+            <div id="cardselfDescription"></div>
+
+            <div id="cardbd"></div>
+            <div id="cardpl"></div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+        let namevalue = document.getElementById("name")
+        let age = document.getElementById("age")
+        let majorun = document.getElementById("major")
+        let description = document.getElementById("description")
+        let date = document.getElementById("date")
+        let brothers = document.getElementById("brothers")
+        let lang = document.getElementsByClassName("lang")
+        let x = "";
+
+
+
+
+
+        function showCard() {
+
+            localStorage.setItem("name", `${namevalue.value}`)
+
+            localStorage.setItem("description", `${description.value}`)
+
+
+
+            localStorage.setItem("display", "block")
+
+            if (document.getElementsByClassName("gender")[0].value == 1) {
+                localStorage.setItem("gender", "Male")
+            } else {
+                localStorage.setItem("gender", "Female")
+            }
+
+            for (let i = 0; i < lang.length; i++) {
+                if (lang[i].checked) {
+                    x += " " + lang[i].value
+                }
+            }
+            localStorage.setItem("languge", `${x}`)
+
+
+        }
+        document.getElementById("card").style.display = localStorage.getItem("display")
+        document.getElementById("cardname").innerHTML = localStorage.getItem("name")
+
+        document.getElementById("cardselfDescription").innerHTML = localStorage.getItem("description")
+
+        document.getElementById("cardpl").innerHTML = localStorage.getItem("languge")
+
+        document.getElementById("cardgender").innerHTML = localStorage.getItem("user")
+
+        localStorage.clear()
+    </script>
+</body>
+
+</html>

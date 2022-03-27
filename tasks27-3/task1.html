@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-weight: bolder;
+            
+        }
+        #card {
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 500px;
+            text-align: center;
+            padding: 5px;
+            display: none;
+            background-color: lightpink;
+            font-size: larger;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #card img {
+            height: 400px;
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15pxpx;
+        }
+
+
+        #language {
+            display: flex;
+        }
+
+        input {
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Personal information </h1>
+
+    <div id="mainForm">
+        <form>
+            <label>Name</label>
+            <input type="text" id="name"><br>
+
+            <label>Age</label>
+            <input type="number" id="age"><br>
+
+            <label>Your major and university</label>
+            <input type="text" id="major"><br>
+
+            <label>gender</label>
+            <div>
+                <input type="radio" name="gender" class="gender" value="0"> <label>Male</label>
+                <input type="radio" name="gender" class="gender" value="1"> <label>Female</label>
+            </div><br>
+            <label>Description</label>
+            <textarea id="description" cols="40" rows="20"></textarea><br>
+
+
+            <label>BirthDate </label>
+            <input type="date" id="date"><br>
+
+            <div id="language">
+
+                <input type="checkbox" class="lang" value="c++">
+                <label for=""> c++</label>
+
+                <input type="checkbox" class="lang" value="java">
+                <label for=""> java</label>
+
+                <input type="checkbox" class="lang" value="js">
+                <label for=""> js</label>
+
+                <input type="checkbox" class="lang" value="html">
+                <label for=""> html</label>
+
+                <input type="checkbox" class="lang" value="Css">
+                <label for=""> css</label>
+
+            </div><br>
+
+
+            <label>siblings number </label>
+            <input type="text" id="brothers">
+
+            <input type="submit" onclick="showCard()">
+
+        </form>
+        <div id="card">
+            <img id="pic" src="imges/s.jfif">
+            <h3 id="cardname"></h3>
+            <div id="cardage"></div>
+            <div id="cardgender"></div>
+            <div id="cardselfDescription"></div>
+            <div id="cardmajorUn"></div>
+            <div id="cardbd"></div>
+            <div id="cardpl"></div>
+            <div id="cardbrothers"></div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+        let namevalue = document.getElementById("name")
+        let age = document.getElementById("age")
+        let majorun = document.getElementById("major")
+        let description = document.getElementById("description")
+        let date = document.getElementById("date")
+        let brothers = document.getElementById("brothers")
+        let lang = document.getElementsByClassName("lang")
+        let x = "";
+
+
+
+
+
+        function showCard() {
+
+            localStorage.setItem("name", `${namevalue.value}`)
+            localStorage.setItem("age", `${age.value}`)
+            localStorage.setItem("majorun", `${majorun.value}`)
+            localStorage.setItem("description", `${description.value}`)
+            localStorage.setItem("date", `${date.value}`)
+            localStorage.setItem("brothers", `${brothers.value}`)
+            localStorage.setItem("pic", "imges/s.jfif")
+            localStorage.setItem("display", "block")
+
+            if (document.getElementsByClassName("gender")[0].value == 1) {
+                localStorage.setItem("gender", "Male")
+            } else {
+                localStorage.setItem("gender", "Female")
+            }
+
+            for (let i = 0; i < lang.length; i++) {
+                if (lang[i].checked) {
+                    x += " " + lang[i].value
+                }
+            }
+            localStorage.setItem("languge", `${x}`)
+
+
+        }
+        document.getElementById("card").style.display = localStorage.getItem("display")
+        document.getElementById("cardname").innerHTML = localStorage.getItem("name")
+        document.getElementById("cardage").innerHTML = localStorage.getItem("age")
+        document.getElementById("cardselfDescription").innerHTML = localStorage.getItem("description")
+        document.getElementById("cardmajorUn").innerHTML = localStorage.getItem("majorun")
+        document.getElementById("cardbd").innerHTML = localStorage.getItem("date")
+        document.getElementById("cardpl").innerHTML = localStorage.getItem("languge")
+        document.getElementById("cardbrothers").innerHTML = localStorage.getItem("brothers")
+        document.getElementById("pic").src = localStorage.getItem("pic")
+        document.getElementById("cardgender").innerHTML = localStorage.getItem("gender")
+
+        localStorage.clear()
+    </script>
+</body>
+
+</html>
