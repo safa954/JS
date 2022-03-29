@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="contener">
+
+        <button class="btn btn-danger" id="btn">load data </button>
+        <div id="info"><h2>my data is:</h2> </div>
+        <table class="table table-striped" id="tb">
+            <tr><th>id</th><th>university</th><th>graguationyear</th></tr>
+        </table>
+    </div>
+<script>
+    document.getElementById('btn').addEventListener('click',function(){
+        let x=new XMLHttpRequest();
+        x.open('GET','data.josn');
+        x.onload=function(){
+            let data=JSON.parse(x.responseText);
+            fun(data);
+
+
+        }
+        x.send();
+
+    });
+    function fun(data){
+        var info=document.getElementById('tb');
+        var ss='';
+        for(let i=0;i<data.length; i++){
+            ss+='<tr><td>'+data[i].id+'<td></td>'+data[i].university+'<td></td>'+data[i].graguationyear+'</td>';
+                info.insertAdjacentElement('beforeend',ss);
+        }
+
+    }
+</script>
+</body>
+</html>
