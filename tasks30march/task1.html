@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Validation</title>
+</head>
+<body>
+
+
+<form> 
+Email: <input type='text' id='email'/>
+<input type="submit" name="submit" value="Submit" onclick="validateEmail()"/>
+</form>
+<script> 
+    function validateEmail()
+    {
+    var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])/;
+    if(document.getElementById('email').value.match(mailformat))
+    {
+        alert("Correct email address.");
+    }
+    else
+    {
+    alert("not correct email address.");
+    }
+    }    
+    </script> 
+
+</body>
+</html>

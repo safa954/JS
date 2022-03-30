@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Registration</title>
+</head>
+
+<body>
+<div class="container">
+    <div id="d">
+    <fieldset>
+        <legend><h1>Registration</h1></legend>
+    <form class="form-group">
+        First Name : <input type="text" id="fname"><br>
+        Last Name : <input type="text" id="lname"><br>
+        Birth Date : <input type="text" id="BD" placeholder="YYYY-MM-DD"><br>
+        Email: <input type='text' id='email'><br>
+        Confirm Email: <input type='text' id='cemail'><br>
+        Password : <input type='password' id='pass' /><br>
+        Confirm Password : <input type='password' id='cpass' /><br>
+        <input type="button"  value="Submit" onclick="ValidateAll()"><br>
+        <span id="massage"></span>
+    </form>
+    </fieldset>
+</div>
+</div>
+    <script>
+        function ValidateAll() {
+            var msg = '';
+            var fNameFormat =/^[a-zA-Z]+$/g;
+            var lNameFormat =/^[a-zA-Z]+$/g;
+            if (document.getElementById('fname').value.match(fNameFormat)&&document.getElementById('lname').value.match(lNameFormat)) {
+                msg += '';
+            }
+            else {
+                msg += 'Wrong Name <br>';
+            }
+            var dateFormat=/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+            if (document.getElementById('BD').value.match(dateFormat)) {
+                msg += '';
+            }
+            else {
+                msg += 'Wrong Date <br>';
+            }
+            var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])/;
+            if (document.getElementById('email').value.match(mailformat)) {
+                msg += '';
+            }
+            else {
+                msg += 'Wrong Email <br>';
+            }
+            if (document.getElementById('email').value == document.getElementById('cemail').value) {
+                msg += '';
+            }
+            else {
+                msg += 'The two Password not match <br>';
+            }
+            var passRegEx = /^(?=.*[A-Z])(?=.*[a-z])(?=(?:\D*\d){2})(?=.*[@#$%^&-+=()]).{8,9}$/;
+            if (document.getElementById('pass').value.match(passRegEx)) {
+                msg += '';
+            }
+            else {
+                msg += 'Wrong Password <br>';
+            }
+            if (document.getElementById('pass').value == document.getElementById('cpass').value) {
+                msg += '';
+            }
+            else {
+                msg += 'The two Password not match <br>';
+            }
+
+document.getElementById('massage').innerHTML=msg;
+        }
+    </script>
+</body>
+
+</html>

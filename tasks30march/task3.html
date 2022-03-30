@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Phone Number Validation</title>
+</head>
+<body>
+
+<form name="form1" action="#"> 
+ <input type='number' id='phone'/>
+<input type="submit"  value="Submit" onclick="phoneNumber()"/>
+</form>
+
+<script> 
+    function phoneNumber()
+    {
+       var phon =/[07]{2,3}[7-9]{1,2}[0-9]{7,8}/g;
+       if(document.getElementById('phone').value.match(phon))
+         {
+            alert("Correct phone number.");
+         }
+       else
+         {
+         alert("Please enter valid phone number.");
+         }
+    }    
+    </script>
+</body>
+</html>
