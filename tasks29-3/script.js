@@ -9,9 +9,9 @@ async function loadData(){
 
 
     document.getElementById("dropList").onchange = function(){
-            for (let k = 0 ; k<data.length;k++){
-                if(data[k].name === document.getElementById("dropList").value){
-                    document.getElementById("s").innerHTML +=data[k].nickname;
+            for (let j = 0 ; j<data.length;j++){
+                if(data[j].name === document.getElementById("dropList").value){
+                    document.getElementById("s").innerHTML +=data[j].nickname;
                 }
             }
       
