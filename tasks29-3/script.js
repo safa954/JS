@@ -14,7 +14,7 @@ async function loadData(){
                     document.getElementById("s").innerHTML +=data[k].nickname;
                 }
             }
-        document.getElementById("s").innerHTML = document.getElementById("dropList").value;
+      
     
     };
 
